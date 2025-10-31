@@ -1,0 +1,8 @@
+<div id="ticker"></div>
+<script>
+setInterval(async () => {
+  const res = await fetch('/api/latest');
+  const data = await res.json();
+  document.getElementById('ticker').innerHTML = data.map(d => ${d.symbol}: $${d.price}).join(' | ');
+}, 5000);
+</script>
